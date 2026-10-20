@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>プライバシー — Job Radar Personal</title>
+<style>body{max-width:48rem;margin:3rem auto;padding:0 1.2rem;background:#faf9f5;color:#233238;font:1rem/1.9 system-ui,sans-serif}h1,h2{line-height:1.5}a{color:#155b78}nav{display:flex;gap:1.2rem;flex-wrap:wrap}footer{border-top:1px solid #ccd3d3;margin-top:3rem;padding-top:1rem;font-size:.9rem}</style>
+<header><p>Job Radar Personal</p><h1>プライバシー</h1></header>
+<nav aria-label="文書"><a href="index.html">アプリ説明</a><a href="privacy.html" aria-current="page">プライバシー</a><a href="terms.html">利用条件</a></nav>
+<main>
+<h2>対象と目的</h2>
+<p>本書は、利用者本人のWindows PCで動くJob Radar PersonalによるGmail接続と求人情報の管理、およびこの説明ページについて説明します。Gmailからのデータは、求人通知の抽出・整理・重複防止と、処理の継続に必要な範囲で使用します。</p>
+<h2>アクセスする情報</h2>
+<p>Googleの同意によりGmail APIの読み取り専用権限（gmail.readonly）を使用します。権限自体はメールボックス全体への読み取りを許しますが、アプリはIndeed・Greenの求人通知を対象とし、通常は最近7日、任意の専用ラベル指定時はそのラベル内の最近30日を検索します。本人が確認した保留通知の識別子は、接続先が同じGmailアカウントと確認できる場合に限り、期間外の通知の回収にも使用します。</p>
+<p>通知の内容はPC内で解析します。メールの送信、既読化、ラベル変更、削除は行いません。添付ファイルを取得・保存する機能はありません。</p>
+<h2>PC内に保存する情報</h2>
+<p>求人欄から得た求人名、会社、勤務地、給与、掲載元へのリンク等を、必要な識別子・受信日時・処理状態とともにローカルSQLiteへ保存します。重複防止の処理済み識別子や、同一アカウント確認に必要なメールアドレスをローカル設定へ保存する場合があります。通知の転送リンクには個別の追跡情報が含まれる場合があり、これも本人のPCだけに保存します。</p>
+<p>元メール全体、添付ファイル、宛先、件名、挨拶文は保存しません。Gmail APIから一時的に受け取る通知内容は、求人欄の解析のためにメモリで処理します。これらのメール情報をコードの保存先や公開ページへ掲載しません。</p>
+<h2>認証情報の保護</h2>
+<p>OAuthクライアントJSONとrefresh tokenは、Windows DPAPIで暗号化してローカルへ保存します。復号は同じWindowsユーザーの権限に依存します。access tokenはアプリ実行中のメモリで保持します。認証情報はこの説明ページへ送信しません。</p>
+<h2>外部との通信</h2>
+<p>Google認証サービスとGmail APIへ、本人が許可した接続・通知取得のために通信します。求人情報を取得する機能では、対応する求人元の公開API等へ通信します。メール本文を求人元へ送信することはありません。利用者が求人リンクを開くと、掲載元または通知の転送先へ接続し、そのサイトのプライバシー条件が適用されます。</p>
+<p>広告配信、行動解析、データ販売のためにGmail情報を使用しません。外部AIサービスへメールを送信しません。本アプリによるGoogle APIの情報利用は、Limited Useの要件を含む<a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noreferrer">Google API Services User Data Policy</a>に従います。</p>
+<h2>保持、削除、接続解除</h2>
+<p>ローカルデータの保持期間は利用者本人が管理します。検索の対象期間は保存済みデータの自動削除期限ではありません。Windows上でアプリを終了したうえで、本人が管理するローカルデータベースや必要なデータを削除できます。アプリのコードを削除するだけで、別に保存されたデータまで消えるとは限りません。</p>
+<p>ローカルアプリで接続を解除すると、このPCに保存した接続用tokenを削除します。Google側のアクセス許可は、Googleアカウントの接続管理から取り消してください。接続解除だけでは保存済み求人や処理記録は削除されないため、不要な情報は別途本人が削除します。</p>
+<h2>この説明ページ</h2>
+<p>説明ページには独自の広告、アクセス解析、JavaScript、外部フォントや画像を使用しません。GitHub Pagesで公開した場合は、ページ配信のためにGitHub側がアクセス情報を処理する場合があります。詳細は<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noreferrer">GitHubのプライバシー文書</a>をご確認ください。このページ自体にメール・認証情報・求人を入力する機能はありません。</p>
+<h2>問い合わせと変更</h2>
+<p>問い合わせ先は、利用者本人がGoogleのアプリ設定・同意画面で確認する管理者です。情報の取扱いを変更する場合は本書へ反映し、追加のGoogle権限が必要な場合は本人の同意を得ます。</p>
+</main>
+<footer>Job Radar Personal · プライバシー文書</footer>
+</html>
